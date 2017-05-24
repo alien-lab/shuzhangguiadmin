@@ -1,0 +1,84 @@
+<div class="useradmin_feedbackPage" ng-controller="userfeedbackController">
+    <div class="col-md-12 col-sm-12 col-xs-12 main_page_increase">
+        <div class="x_title">
+            <h2 ng-model="main_title">用户反馈 <small>书掌柜</small></h2>
+        </div>
+        <hr/>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4 main_page_show">
+        <div class="table-responsive" ng-if="showContent">
+            <div class="bookPanel_zhanwei" style="height:413px;">
+                <table class="table table-hover">
+                    <thead>
+                    <tr class="headings feedback_tr">
+                        <th>
+                            <input type="checkbox" id="checkAll" class="check-all" ng-model="checkall" data-ng-click="checkAll(checkall)" style="display: none;">
+                            <label for="checkAll"></label>
+                        </th>
+                        <th># </th>
+                        <th>openid </th>
+                        <th>用户姓名 </th>
+                        <th>联系电话 </th>
+                        <th>意见或反馈 </th>
+                        <th>解决状态</th>
+                        <th>回复状态</th>
+                        <th>反馈时间</th>
+                        <th class="column-title last"><span class="nobr" >编辑</span>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr class="even pointer" ng-class="{'turnColor':borrowbook.checked}" ng-repeat="borrowbook in items">
+                        <td class="a-center ">
+                            <input type="checkbox" id="checkbox{{borrowbook.count}}" class="checkOption" ng-model="borrowbook.checked" data-ng-click="sigelChecked(borrowbook.checked,$index)"  style="display: none;">
+                            <label for="checkbox{{borrowbook.count}}"></label>
+                        </td>
+                        <td class=" ">{{borrowbook.count}}</td>
+                        <td class=" ">{{borrowbook.openid}}</td>
+                        <td class=" ">{{borrowbook.user}}</td>
+                        <td class=" ">{{borrowbook.phonenumber}} </td>
+                        <td class=" " style="color: #2d6ca2;">{{borrowbook.feedbackcontent}} </td>
+                        <td class=" " style="color: red;">{{borrowbook.resolutestate}}</td>
+                        <td class=" ">{{borrowbook.replystate}}</td>
+                        <td class=" ">{{borrowbook.time | date:'yyyy-MM-dd'}}</td>
+                        <td class=" last">
+                            <a href="javascript:void(0);"><i class="glyphicon glyphicon-trash" style="color: red;margin: 0 0 0 6px;"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--pagination-->
+            <nav>
+                <ul class="pagination" ng-model="maxSize" num-pages="numPages" max-size="maxSize">
+                    <li>
+                        <a ng-click="Previous()">
+                            <span>上一页</span>
+                        </a>
+                    </li>
+                    <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                        <a ng-click="selectPage(page)" >{{ page }}</a>
+                    </li>
+                    <li>
+                        <a ng-click="Next()">
+                            <span>下一页</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--edit-->
+            <div class="borrowbookEdit">
+                <!--<button type="button" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i>编辑</button>-->
+                <button type="button" class="btn btn-danger btn-sm" ng-if="button_hide" style="float: right;margin:0 38px 0 0;"><i class="glyphicon glyphicon-trash"></i>删除</button>
+            </div>
+            <pre>页码: {{selPage}} / {{maxSize}}</pre>
+            <!--end-->
+
+        </div>
+        <!--no content-->
+        <div class="no_contentPanel" ng-if="showNoContent">
+            <img src="img/nocontent.png"/>
+            <p>这里还木有内容哦~</p>
+        </div>
+    </div>
+</div>

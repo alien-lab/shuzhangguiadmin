@@ -1,0 +1,103 @@
+<div class="useradmin_InfoPage" ng-controller="userInfoController">
+    <div class="col-md-12 col-sm-12 col-xs-12 borrowbook_panel">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>用户列表 <small>书掌柜</small></h2>
+            </div>
+            <div class="x_content">
+                <div style="width: 100%;height: 30px;">
+                    <div style="float:left;width:380px;height:30px;">
+                        <p style="float: left;width:85px;"><code>搜索用户：</code></p>
+                        <div class="input-group" style="margin: -6px 0 0 0px;">
+                            <input type="text" class="form-control" ng-model="libraryName" placeholder="昵称/Openid" style="border-radius: 20px;">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" style="margin: 0px 0px 0px -35px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">Go!</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div style="float: right;width:320px;height:30px;">
+                        <p style="float: left;width:85px;"><code>图书馆选择：</code></p>
+                        <select select2 ng-model="b" class="form-control" placeholder="--请选择图书馆--" style="float: right;margin: -7px 0 0 0;width:230px;">
+                            <option ng-repeat="library_name in library_names">{{library_name.libraryName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-responsive" ng-if="showContent">
+                    <div class="bookPanel_zhanwei" style="height:413px;">
+                        <table class="table borrowbook_table table-hover">
+                            <thead>
+                            <tr class="headings">
+                                <th>
+                                    <input type="checkbox" id="checkAll" class="check-all" ng-model="checkall" data-ng-click="checkAll(checkall)" style="display: none;">
+                                    <label for="checkAll"></label>
+                                </th>
+                                <th># </th>
+                                <th>Openid </th>
+                                <th>昵称 </th>
+                                <th>图书馆 </th>
+                                <th>借阅次数 </th>
+                                <th>信用度 </th>
+                                <th>历史记录</th>
+                                <th class="column-title last"><span class="nobr">操作</span></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr class="even pointer" ng-class="{'turnColor':borrowbook.checked}" ng-repeat="borrowbook in items">
+                                <td class="a-center ">
+                                    <input type="checkbox" id="checkbox{{borrowbook.count}}" class="checkOption" ng-model="borrowbook.checked" data-ng-click="sigelChecked(borrowbook.checked,$index)"  style="display: none;">
+                                    <label for="checkbox{{borrowbook.count}}"></label>
+                                </td>
+                                <td class=" ">{{borrowbook.count}}</td>
+                                <td class=" ">{{borrowbook.Openid}}</td>
+                                <td class=" ">{{borrowbook.borrowUserName}}</td>
+                                <td class=" ">{{borrowbook.libraryName}} </td>
+                                <td class=" ">{{borrowbook.borrowNumber}} </td>
+                                <td class=" " style="color: #00bb29;">{{borrowbook.credit}} </td>
+                                <td class=" ">
+                                    <a href="javascript:void(0);" ui-sref="index.userdetails" style="color:#3F5367;">查看详情</a>
+                                </td>
+                                <td class=" last">
+                                    <a href="javascript:void(0);" style="color:#3F5367;">拉黑</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--pagination-->
+                    <nav>
+                        <ul class="pagination" ng-model="maxSize" num-pages="numPages" max-size="maxSize">
+                            <li>
+                                <a ng-click="Previous()">
+                                    <span>上一页</span>
+                                </a>
+                            </li>
+                            <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                                <a ng-click="selectPage(page)" >{{ page }}</a>
+                            </li>
+                            <li>
+                                <a ng-click="Next()">
+                                    <span>下一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--edit-->
+                    <div class="borrowbookEdit">
+                        <!--<button type="button" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i>编辑</button>-->
+                        <button type="button" class="btn btn-danger btn-sm" ng-if="button_hide" style="float: right;margin:0 38px 0 0;"><i class="glyphicon glyphicon-trash"></i>下架</button>
+                    </div>
+                    <pre>页码: {{selPage}} / {{maxSize}}</pre>
+                    <!--end-->
+
+                </div>
+
+                <!--no content-->
+                <div class="no_contentPanel" ng-if="showNoContent">
+                    <img src="img/nocontent.png"/>
+                    <p>这里还木有内容哦~</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

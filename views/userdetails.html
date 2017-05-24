@@ -1,0 +1,71 @@
+<div class="userdetails_page" ng-controller="userdetailsController">
+    <div class="col-md-12 col-sm-12 col-xs-12 main_page_increase">
+        <div class="x_title">
+            <h2 ng-model="main_title">用户详情 <small>书掌柜</small></h2>
+        </div>
+        <hr/>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4 main_page_show">
+        <div class="userDetails_left">
+            <div class="user_img">
+                <img src="img/userdefault.jpg"/>
+            </div>
+            <div class="user_info" ng-repeat="user in users">
+                <h3>{{user.name}}</h3>
+                <ul class="list-unstyled user_data">
+                    <li>
+                        <img src="img/id.png"/> Openid：{{user.Openid}}
+                    </li>
+                    <li>
+                        <img src="img/credit.png"/> 信用度：{{user.credit}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="userDetails_right">
+            <div class="userDetails_top">
+                <div class="userDetails_title_left">
+                    <p>借阅历史</p>
+                </div>
+                <div class="userDetails_right">
+                   <div>
+                        <p><code>图书馆选择：</code></p>
+                        <select select2 ng-model="b" class="form-control" placeholder="--请选择图书馆--" style="float: right;margin: -7px 0 0 0;width:230px;">
+                            <option ng-repeat="library_name in library_names">{{library_name.libraryName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="book_history">
+                <!-- start recent activity -->
+                <ul class="messages" ng-if="showContent">
+                    <li class="history_li" ng-repeat="historyList in bookhistory">
+                        <div class="history_userimg">
+                            <img src="img/icon.jpg"/>
+                        </div>
+                        <div class="message_wrapper">
+                            <h4 class="heading"><code>{{historyList.beginTime}}-------->{{historyList.endTime}}</code></h4>
+                            <blockquote class="message">《{{historyList.bookName}}》</blockquote>
+                            <div class="message_date">
+                                <h3 class="date text-info">{{historyList.libraryName}}</h3>
+                            </div>
+                        </div>
+                        <br/>
+                    </li>
+                </ul>
+                <!-- end recent activity -->
+
+
+                <!--no content-->
+                <div class="history_no_contentPanel" ng-if="showNoContent">
+                    <img src="img/nocontent.png"/>
+                    <p>这里还木有内容哦~</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

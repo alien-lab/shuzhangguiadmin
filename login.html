@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="shuzhangguiLogin">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/bootstrap-3.0.0/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/sweetalert.css">
+
+    <script src="js/angular-1.3.0.js"></script>
+    <script src="loginController.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <title>书掌柜 --登录·注册</title>
+
+</head>
+<body>
+
+<div class="Login_html" ng-controller="loginController">
+    <div class="sign" >
+        <div class="panel panel-default main">
+            <div class="panel-body" >
+                <h4 class="title">
+                    <div class="normal-title">
+                        <a ng-class={'active':isLogin,'':isnotLogin} id="loginClass" ng-click="loginBtn()" style="cursor: pointer;">登录</a>
+                        <b>·</b>
+                        <a ng-class={'active':isRegister,'':isnotRegister} id="registerClass" ng-click="registerBtn()" style="cursor: pointer;">注册</a>
+                    </div>
+                </h4>
+                <!--登录-->
+                <form action="#" ng-hide="login_panel">
+                    <div class="form-input">
+                        <input type="text" class="top-btn" ng-model="phoneNumber" placeholder="手机号或OpenID">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="form-input">
+                        <input type="password" class="down-btn" ng-model="password" placeholder="密码">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <input type="submit" class="sign-in-button" ng-click="sign_in_button()" value="登录">
+                    <div class="remember-btn">
+                        <input type="checkbox">
+                        <span>记住我</span>
+                    </div>
+                    <div class="forget-btn">
+                        <a href="#">登录遇到问题？</a>
+                    </div>
+
+                </form>
+
+            </div>
+            <!--注册-->
+            <form action="#" ng-hide="register_panel">
+                <div class="form-input">
+                    <input type="text" class="top-btn" ng-model="nickname" placeholder="昵称">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-input">
+                    <input type="text" class="center-btn" ng-model="phoneNumber" placeholder="手机号">
+                    <i class="fa fa-mobile-phone max"></i>
+                </div>
+                <div class="form-input">
+                    <input type="password" class="down-btn" ng-model="password" placeholder="设置密码">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <input type="submit" class="sign-up-button" ng-click="sign_up_button()" value="注册">
+                <p class="sign-up-msg">点击 “注册” 即表示您同意并愿意遵守简书<br>
+                    <a target="_blank" href="#">用户协议</a> 和
+                    <a target="_blank" href="#">隐私政策</a> 。
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

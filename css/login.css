@@ -1,0 +1,226 @@
+html,body{width:100%;height:100%; margin:0 auto;background: url("../img/login_bg.jpg")no-repeat;background-size: cover;}
+
+.Login_html{width: 100%;height: 100%;}
+/*登录注册样式表*/
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+.panel-body {
+    padding: 0;
+}
+.sign .logo {
+    position: absolute;
+    top: 56px;
+    width: 100px;
+}
+
+
+.sign .main {
+    width: 400px;
+    float: right;
+    margin: 90px 173px 0 0px;
+    padding: 50px 50px 30px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.sign .title {
+    margin: 0 auto 50px;
+    padding: 10px;
+    font-weight: 400;
+    color: #969696;
+}
+
+.sign .title b {
+    padding: 10px;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+.sign .title a {
+    padding: 10px;
+    color: #969696;
+    text-decoration: none;
+}
+
+.sign .title a:hover {
+    border-bottom: 2px solid #ea6f5a;
+}
+
+.sign .title .active {
+    font-weight: 700;
+    color: #ea6f5a;
+    border-bottom: 2px solid #ea6f5a;
+}
+
+.sign i{
+    font-size: 18px;
+}
+
+.sign .max{
+    font-size: 24px;
+}
+
+.sign form .form-input .top-btn{
+    border-top: 1px solid #c8c8c8;
+    border-radius: 4px 4px 0 0;
+}
+.sign form .form-input input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0;
+    padding: 4px 12px 4px 35px;
+    border-left: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    background-color: hsla(0,0%,71%,.1);
+    color: #b6b2b2;
+    vertical-align: middle;
+}
+
+.sign form .center-btn{
+    border-top: 1px solid #c8c8c8;
+    border-radius: 0;
+}
+
+.sign form .down-btn{
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+    border-radius: 0 0 4px 4px;
+}
+
+.sign form .form-input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.sign form i {
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    font-size: 18px;
+    color: #969696;
+}
+
+.sign-in-button, .sign-up-button {
+    width: 100%;
+    padding: 9px 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background: #42c02e;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    clear: both;
+    margin-top: 20px;
+}
+
+.sign .sign-in-button {
+    background: #3194d0;
+}
+
+.sign .sign-up-msg {
+    margin: 10px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    color: #969696;
+}
+
+.sign .sign-up-msg a, .sign .sign-up-msg a:hover {
+    color: #3194d0;
+}
+
+.sign .more-sign {
+    margin-top: 30px;
+    clear: both;
+}
+
+.sign .more-sign h6 {
+    position: relative;
+    margin: 0 0 20px;
+    font-size: 12px;
+    color: #b5b5b5;
+}
+
+.sign .more-sign ul {
+    display: block;
+    margin-left:auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+.sign .more-sign ul li {
+    margin: 0 3px;
+    display: inline-block;
+}
+
+.sign .more-sign ul a {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    display: block;
+    position: relative;
+}
+
+.sign form .more-sign i {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #FFF;
+}
+
+.sign .more-sign .weibo {
+    background-color: #e05244;
+}
+
+.sign .more-sign .weixin {
+    background-color: #00bb29;
+}
+
+.sign .more-sign .qq {
+    background-color: #498ad5;
+}
+
+.sign .more-sign .other{
+    background-color: #286090;
+}
+
+.sign .more-sign .other i{
+    width: 24px;
+    height: 24px;
+}
+
+.sign .more-sign ul i {
+    font-size: 24px;
+}
+
+.remember-btn{
+    color: #666;
+    float: left;
+    margin: 5px 0;
+}
+
+.forget-btn{
+    float: right;
+    margin: 5px 0;
+
+}
+
+.forget-btn a{
+    color: #666;
+    text-decoration: none;
+}
+
+.forget-btn a:hover{
+    color: #000;
+}
+

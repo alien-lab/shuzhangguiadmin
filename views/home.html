@@ -1,0 +1,130 @@
+<!-- increase library info-->
+<div class="main_page" ng-controller="homeController">
+        <div class="col-md-12 col-sm-12 col-xs-12 main_page_increase">
+            <div class="x_title">
+                <h2 ng-model="main_title">{{main_title}} <small>图书馆信息</small></h2>
+            </div>
+            <div class="x_setting">
+                <div>
+                    <i class="glyphicon glyphicon-chevron-down" data-ng-click="libraryInfo_down()" ng-if="down"></i>
+                    <i class="glyphicon glyphicon-chevron-up" data-ng-click="libraryInfo_up()" ng-if="up"></i>
+                </div>
+            </div>
+            <hr/>
+            <div class="x_libraryInfo" ng-if="libraryInfo">
+                <form class="form-horizontal form-label-left libraryInfo_panel">
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-4 col-xs-12 control-label">图书馆位置*</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input select-address p="p" c="c" a="a" d="d" ng-model="xxx" placeholder="请选择所在地" type="text" class="form-control xxx" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">图书馆名称 <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" ng-model="libraryName" class="form-control col-md-7 col-xs-12 libraryName" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">图书馆介绍</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" ng-model="libraryDesc" class="form-control col-md-7 col-xs-12 libraryDesc"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4 col-sm-4 col-xs-12">存书量<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="number" ng-model="libraryNumber" value="libraryNumber" class="form-control col-md-7 col-xs-12 libraryNumber" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button class="btn btn-primary" type="button" data-ng-click="libraryInfo_cancle()">取消</button>
+                            <button class="btn btn-primary" type="reset" data-ng-click="libraryInfo_reset()">重置</button>
+                            <button type="submit" class="btn btn-success" data-ng-click="libraryInfo_submit()">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+   <div class="col-md-4 col-sm-4 col-xs-4 main_page_show">
+       <!--搜索-->
+       <div class="title_right">
+           <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+               <div class="input-group">
+                   <input type="text" class="form-control" ng-model="library__Name" placeholder="图书馆名称...">
+                   <span class="input-group-btn">
+                       <button class="btn btn-default" type="button">Go!</button>
+                   </span>
+               </div>
+           </div>
+       </div>
+       <!--列表-->
+       <div class="col-md-12 col-sm-12 col-xs-12 info_showList" ng-if="showContent">
+           <div class="x_panel">
+               <div class="x_content" style="display: block;">
+                   <div class="bookPanel_zhanwei" style="height:355px;">
+                   <table class="table table-hover table-striped home_table">
+                       <thead>
+                       <tr>
+                           <th>#</th>
+                           <th>馆名</th>
+                           <th>介绍</th>
+                           <th>位置</th>
+                           <th>存书量</th>
+                           <th class="column-title last"><span class="nobr">操作</span></th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr ng-repeat="libraryInfo in items | filter:library__Name | orderBy:'libraryNumber'">
+                           <th scope="row" style="height: 30px;">{{libraryInfo.id}}</th>
+                           <td style="height: 30px;">{{libraryInfo.libraryName}}</td>
+                           <td style="height: 30px;">{{libraryInfo.libraryDesc}}</td>
+                           <td style="height: 30px;">{{libraryInfo.libraryLocation}}</td>
+                           <td style="height: 30px;">{{libraryInfo.libraryNumber}}册</td>
+                           <td class=" last" style="height: 30px;">
+                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-edit" data-ng-click="modify_library(libraryInfo.id,$index)" style="color:#3F5367;"></i></a>
+                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-trash" data-ng-click="delete_library(libraryInfo.id,$index)" style="color: red;margin: 0 0 0 6px;"></i></a>
+                           </td>
+                       </tr>
+
+                       </tbody>
+                   </table>
+               </div>
+                   <!--pagination-->
+                   <nav>
+                       <ul class="pagination" ng-model="maxSize" num-pages="numPages" max-size="maxSize">
+                           <li>
+                               <a ng-click="Previous()">
+                                   <span>上一页</span>
+                               </a>
+                           </li>
+                           <li ng-repeat="page in pageList" ng-class="{active: isActivePage(page)}" >
+                               <a ng-click="selectPage(page)" >{{ page }}</a>
+                           </li>
+                           <li>
+                               <a ng-click="Next()">
+                                   <span>下一页</span>
+                               </a>
+                           </li>
+                       </ul>
+                   </nav>
+                   <!--edit-->
+                   <!--<div class="homeEdit">
+                       <button type="button" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i>编辑</button>
+                       <button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                   </div>-->
+                   <pre>页码: {{selPage}} / {{maxSize}}</pre>
+                   <!--end-->
+
+               </div>
+           </div>
+       </div>
+
+       <!--no content-->
+       <div class="no_contentPanel" ng-if="showNoContent">
+           <img src="img/nocontent.png"/>
+           <p>这里还木有内容哦~</p>
+       </div>
+   </div>
+</div>
