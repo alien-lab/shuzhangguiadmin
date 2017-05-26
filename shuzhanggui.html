@@ -12,6 +12,7 @@
     <!--select-->
     <link rel="stylesheet" href="css/select2.css"/>
     <link rel="stylesheet" href="css/select2-bootstrap.css"/>
+    <link rel="stylesheet" href="css/loaders.css"/>
 
 
     <script src="addressjs/plugins/jquery/dist/jquery.min.js"></script>
@@ -22,7 +23,6 @@
     <script src="shuzhanggui.js"></script>
     <script src="js/toggleController.js"></script>
     <script src="js/homeController.js"></script>
-
 
     <!--address-->
     <script src="addressjs/selectAddress2.js"></script>
@@ -52,10 +52,23 @@
 
     <!--用户反馈-->
     <script src="js/userfeedbackController.js"></script>
+
+
 </head>
 
 <body>
     <div ui-view></div>
+    <div class="mymodel" id="mymodel" style="display: none;">
+        <div class="loader">
+            <div class="loader-inner line-scale-pulse-out-rapid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

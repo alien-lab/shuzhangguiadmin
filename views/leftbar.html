@@ -23,7 +23,7 @@
             </div>
             <div class="navbar_close"><i class="glyphicon glyphicon-off" data-ng-click="exit_library()"></i></div>
                 <!-- 模态框（Modal） -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+               <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="spinner">
                         <div class="rect1"></div>
                         <div class="rect2"></div>
@@ -31,9 +31,11 @@
                         <div class="rect4"></div>
                         <div class="rect5"></div>
                     </div>
-                </div>
+                </div>-->
             </div>
     </nav>
+
+
     <div class="search_panel col-md-12 col-sm-12 col-xs-12 toggle_search" ng-if="search_panel">
         <form class="navbar-form">
             <div class="form-group">
@@ -59,7 +61,7 @@
                 <div class="left_ment_main" >
                     <ul class="main-menu nav nav-pills nav-stacked">
                         <li>
-                            <a ui-sref="index">
+                            <a ui-sref="index" data-ng-click="toggle_model()">
                                 <i class="glyphicon glyphicon-home"></i>
                                 主页
                             </a>
@@ -73,13 +75,13 @@
                             </a>
                             <ul class="nav nav-pills nav-stacked toggle_menu" ng-if="book_li_panel">
                                 <li>
-                                    <a ui-sref="index.borrowbookInfo">借阅信息</a>
+                                    <a ui-sref="index.borrowbookInfo" data-ng-click="toggle_model()">借阅信息</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="index.bookInfo">图书信息</a>
+                                    <a ui-sref="index.bookInfo" data-ng-click="toggle_model()">图书信息</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="index.bookentry">图书上架</a>
+                                    <a ui-sref="index.bookentry" data-ng-click="toggle_model()">图书上架</a>
                                 </li>
                             </ul>
                         </li>
@@ -91,8 +93,8 @@
                                 <i class="glyphicon glyphicon-minus" ng-if="user_minus"></i>
                             </a>
                             <ul class="nav nav-pills nav-stacked toggle_menu" ng-if="user_li_panel">
-                                <li><a ui-sref="index.userInfo">用户信息</a></li>
-                                <li><a ui-sref="index.userfeedback">用户反馈</a></li>
+                                <li><a ui-sref="index.userInfo" data-ng-click="toggle_model()">用户信息</a></li>
+                                <li><a ui-sref="index.userfeedback" data-ng-click="toggle_model()">用户反馈</a></li>
                             </ul>
                         </li>
                         <li class="navbar-fixed-bottom">

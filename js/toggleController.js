@@ -48,7 +48,9 @@ shuzhanggui.controller('toggleController',['$scope',function ($scope) {
 
    //注销
    $scope.exit_library=function () {
-      swal({
+      $('#mymodel').css('display','block');
+      setTimeout("window.location.href='login.html'",1000);
+      /*swal({
          title: "您确定要注销吗？",
          type: "warning",
          showCancelButton: true,
@@ -56,14 +58,21 @@ shuzhanggui.controller('toggleController',['$scope',function ($scope) {
          confirmButtonText: "是的，我要注销",
          confirmButtonColor: "#ec6c62"
       }, function() {
-         swal({
+
+         /!*swal({
             title: "操作成功!", 
             type: "success",
             timer:'1500'
          },function () {
-            $('#myModal').modal('show');
-            setTimeout("window.location.href='login.html'",1600);
-         });
+
+
+         });*!/
+      });*/
+   }
+
+   $scope.toggle_model=function () {
+      angular.element('#mymodel').fadeIn(500,function () {
+         angular.element('#mymodel').fadeOut();
       });
    }
 

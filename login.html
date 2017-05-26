@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/login.css"/>
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/sweetalert.css">
+    <link rel="stylesheet" href="css/loaders.css"/>
 
+    <script src="addressjs/plugins/jquery/dist/jquery.min.js"></script>
     <script src="js/angular-1.3.0.js"></script>
     <script src="loginController.js"></script>
     <script src="js/sweetalert.min.js"></script>
@@ -14,9 +16,20 @@
 
 </head>
 <body>
-
+<div class="mymodel" id="mymodel" style="display: none;">
+    <div class="loader">
+        <div class="loader-inner line-scale-pulse-out-rapid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
 <div class="Login_html" ng-controller="loginController">
-    <div class="sign" >
+    <div class="topPanel"></div>
+    <div class="sign">
         <div class="panel panel-default main">
             <div class="panel-body" >
                 <h4 class="title">

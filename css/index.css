@@ -133,8 +133,20 @@ a{color: #ffffff;}
 .left_menu_bottom>a>i:hover{color: #ffffff;}*/
 
 
-/*主页*/
+.main_page{
+    -webkit-transition: all linear 0.8s;
+    -moz-transition: all linear 0.8s;
+    -ms-transition: all linear 0.8s;
+    -ms-transition:all linear 0.8s;
+    transition: all linear 0.8s;
+}
 
+.main_page.ng-enter{ top:150px;}
+.main_page.ng-enter-active{top:50px;}
+.main_page.ng-leave{top:50px;}
+.main_page.ng-leave-active{top:150px;}
+
+/*主页*/
 .main_page{width:83%;height:auto;top:50px; background:#F7F7F7;position: absolute;right:0px;}
 .main_page_increase{float: left;background:#ffffff;margin: 0px 0 0 0px;height:70px;z-index: 9;}
 .main_page_increase>.x_title{width:auto;float: left;}
@@ -213,6 +225,8 @@ td{color: #3F5367;font-size: 12px;}
     content:"\2714";
 }
 
+.fontColor{color: #3F5367;}
+
 .turnColor{background:#FFBF90;}
 .turnColor_delete{color: red;font-weight: 500;}
 .borrowbookEdit,.homeEdit{width: 200px;height: 54px;float: right;margin: -54px 0 0 34px;}
@@ -230,6 +244,29 @@ td,th{height:30px;}
 
 /*图书上架*/
 .book_entryPage{width:83%;height:90%;top:50px; background:#ffffff;position: absolute;right:0px;}
+.book_entryPanel{width:500px;height:400px;background:#fafafa;border:1px dashed #cccccc;position: absolute;left:245px;top:61px;border-radius: 10px;}
+.book_entry_info{width:85%;height:83%;margin: 35px 0 0 35px;}
+.entry_info_top{width:auto;height:auto;}
+.entry_info{width: 100%;height:70%;}
+.entry_info_left{float: left;width:40%;height:100%;}
+.entry_info_right{margin: 25px 0 0 0;float: right;width:50%;height:100%;display: flex;flex-direction: column;}
+.entry_info_left>img{width:80%;height:80%;margin: 23px 0 0 17px;    box-shadow: 6px 3px 10px #888888;}
+.entry_info_button{position: absolute;bottom: 80px;right: 50px;}
+.entry_info_button>button:first-child{float: right;border-radius: 5px;}
+.entry_info_button>button:last-child{border-radius: 5px;margin:0 66px 0 0 ;}
+.toggel_entryPanel{
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -ms-transition:all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+.toggel_entryPanel.ng-enter{ top:-50px;}
+.toggel_entryPanel.ng-enter-active{top:50px;}
+.toggel_entryPanel.ng-leave{top:50px;}
+.toggel_entryPanel.ng-leave-active{top:-50px;}
+
 
 /*图书下架*/
 .book_OffPge{width:83%;height:90%;top:50px; background:#ffffff;position: absolute;right:0px;}
@@ -283,7 +320,7 @@ blockquote{color:#3F5367;}
 
 /*loading*/
 .modal-backdrop.in {
-    opacity: 0.4;
+    opacity: 0.3;
 }
 .spinner {
     margin: 100px auto;
@@ -294,7 +331,7 @@ blockquote{color:#3F5367;}
 }
 
 .spinner > div {
-    background-color: #67CF22;
+    background-color: #ffffff;
     height: 100%;
     width: 6px;
     display: inline-block;
@@ -337,3 +374,13 @@ blockquote{color:#3F5367;}
            -webkit-transform: scaleY(1.0);
        }
 }
+
+.mymodel{
+    z-index: 1000;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+}
+.loader{position: absolute;top:40%;left:50%;}

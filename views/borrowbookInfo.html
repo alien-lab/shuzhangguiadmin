@@ -11,10 +11,11 @@
                     <div style="float: right;width:320px;height:30px;">
                         <p style="float: left;width:85px;"><code>图书馆选择：</code></p>
                         <select select2 ng-model="b" class="form-control" placeholder="--请选择图书馆--" style="float: right;margin: -7px 0 0 0;width:230px;">
-                            <option ng-repeat="library_name in library_names">{{library_name.libraryName}}</option>
+                            <option ng-repeat="libraryName in library_names">{{libraryName.library_name}}</option>
                         </select>
                     </div>
                 </div>
+
                 <div class="table-responsive" >
                     <div class="bookPanel_zhanwei" style="height:413px;">
                     <table class="table borrowbook_table table-hover">
@@ -54,6 +55,13 @@
                             <td class=" " style="color: red;">{{borrowbook.borrowStatus}}</td>
                             <td class=" last"><a style="color: #3F5367;cursor: pointer;" ui-sref="index.userdetails" ng-class="{'turnColor_delete':borrowbook.checked}">查看详情</a>
                             </td>
+
+                          <!--  <td>
+                                <input type="text" id='txt_name_{{borrowbook.id}}' ng-model="borrowbook.publisher" class="inactive" readonly />
+                            </td>
+                            <td> <input type="text" ng-model="borrowbook.ISBN" class="inactive" readonly /></td>
+                            <td><edit ng-Model="employee" ng-show="showEdit"><a>Edit</a></edit>
+                            </td>-->
                         </tr>
                         </tbody>
                     </table>
@@ -79,7 +87,7 @@
                     <!--edit-->
                     <div class="borrowbookEdit">
                         <button type="button" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-pencil"></i>编辑</button>
-                        <button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>删除</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-ng-click="delete_all()"><i class="glyphicon glyphicon-trash"></i>删除</button>
                     </div>
                     <pre>页码: {{selPage}} / {{maxSize}}</pre>
                     <!--end-->

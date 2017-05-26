@@ -25,7 +25,6 @@ shuzhanggui.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/borrowbookInfo.html'
                 }
             }
-
         })
        .state('index.bookInfo', {
            url: '/bookInfo',

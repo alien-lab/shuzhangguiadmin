@@ -321,5 +321,11 @@ shuzhanggui.controller('userInfoController',['$scope',function ($scope) {
    $scope.Next = function () {
       $scope.selectPage($scope.selPage + 1);
    };
+   //loading
+   $scope.toggle_model=function () {
+      angular.element('#mymodel').fadeIn(500,function () {
+         angular.element('#mymodel').fadeOut();
+      });
+   }
 
 }]);

@@ -647,49 +647,49 @@ shuzhanggui.controller('borrowbookController', ['$scope','$log',function ($scope
 
    var library_names=[
       {
-         'libraryName':'南京工业职业技术学院书店'
+         'library_name':'南京工业职业技术学院书店'
       },
       {
-         'libraryName':'珈蓝学院藏经阁'
+         'library_name':'珈蓝学院藏经阁'
       },
       {
-         'libraryName':'先锋书店'
+         'library_name':'先锋书店'
       },
       {
-         'libraryName':'上海书店'
+         'library_name':'上海书店'
       },
       {
-         'libraryName':'甘肃仙林大道书店'
+         'library_name':'甘肃仙林大道书店'
       },
       {
-         'libraryName':'北京北海道小书店'
+         'library_name':'北京北海道小书店'
       },
       {
-         'libraryName':'不知道哪里小噶哒的大书店'
+         'library_name':'不知道哪里小噶哒的大书店'
       },
       {
-         'libraryName':'光明教后勤仓库'
+         'library_name':'光明教后勤仓库'
       },
       {
-         'libraryName':'少林寺藏书阁'
+         'library_name':'少林寺藏书阁'
       },
       {
-         'libraryName':'不知道哪里小噶哒的大书店'
+         'library_name':'不知道哪里小噶哒的大书店'
       },
       {
-         'libraryName':'光明教后勤仓库'
+         'library_name':'光明教后勤仓库'
       },
       {
-         'libraryName':'少林寺藏书阁'
+         'library_name':'少林寺藏书阁'
       },
       {
-         'libraryName':'不知道哪里小噶哒的大书店'
+         'library_name':'不知道哪里小噶哒的大书店'
       },
       {
-         'libraryName':'光明教后勤仓库'
+         'library_name':'光明教后勤仓库'
       },
       {
-         'libraryName':'少林寺藏书阁'
+         'library_name':'少林寺藏书阁'
       }
    ];
 
@@ -705,12 +705,39 @@ shuzhanggui.controller('borrowbookController', ['$scope','$log',function ($scope
       //循环操作数据，将每条数据里面的checked值跟全选状态的值对应起来
       angular.forEach($scope.borrowbooks,function (value,key) {
          value.checked = $scope.checkall;
+         $scope.delete_all=function () {
+            if(value.checked){
+               swal({
+                  title: "您确定要全部删除吗？",
+                  type: "warning",
+                  showCancelButton: true,
+                  closeOnConfirm: false,
+                  confirmButtonText: "是的，我要删除",
+                  confirmButtonColor: "#ec6c62"
+               }, function () {
+                  swal({
+                     title: "操作成功!",
+                     type: "success"
+                  });
+               });
+            }
+         }
       })
    }
    //单选
    $scope.sigelChecked=function (checked,index) {
       $scope.borrowbooks[index].checked = checked;
+      $scope.delete_all=function () {
+         if($scope.borrowbooks[index].checked){
+            swal({
+               title: "操作成功!",
+               type: "success"
+            });
+         }
+      }
    }
+
+
 
 
 
@@ -763,5 +790,37 @@ shuzhanggui.controller('borrowbookController', ['$scope','$log',function ($scope
          $scope.selectPage($scope.selPage + 1);
       };
 
+      //loading
+   $scope.toggle_model=function () {
+      angular.element('#mymodel').fadeIn(500,function () {
+         angular.element('#mymodel').fadeOut();
+      });
+   }
+
+
 }])
 
+/*
+shuzhanggui.directive("edit",function($document){
+   return{
+      restrict: 'AE',
+      require: 'ngModel',
+      link: function(scope,element,attrs,ngModel){
+         element.bind("click",function(){
+            var id = "txt_name_" +ngModel.$modelValue.id;
+            scope.$apply(function(){
+               angular.copy(ngModel.$modelValue,scope.master);
+               //console.log(scope.master);
+            })
+            //console.log(id);
+            var obj = $("#"+id);
+            obj.removeClass("inactive");
+            obj.addClass("active");
+            obj.removeAttr("readOnly");
+            scope.$apply(function(){
+               scope.showEdit = false;
+            })
+         });
+      }
+   }
+});*/

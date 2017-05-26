@@ -16,7 +16,7 @@
                         <!--<option ng-repeat="library_name in library_names">{{library_name.libraryName}}</option>-->
                         <!--</select>-->
                         <select select2 ng-model="b" class="form-control" placeholder="--请选择图书馆--" style="float: right;margin: -7px 0 0 0;width:230px;">
-                            <option ng-repeat="library_name in library_names">{{library_name.libraryName}}</option>
+                            <option ng-repeat="library_name in library_names" >{{library_name.libraryName}}</option>
                         </select>
                     </div>
                 </div>
@@ -38,12 +38,12 @@
                             <th>索书号 </th>
                             <th>押金 </th>
                             <th>图书状态 </th>
-                            <th class="column-title last"><span class="nobr" style="cursor: pointer;">历史记录</span>
+                            <th class="column-title last"><span class="nobr" style="cursor: pointer;">历史记录 </span>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr class="even pointer" ng-class="{'turnColor':borrowbook.checked}" ng-repeat="borrowbook in items">
+                        <tr class="even pointer" ng-class="{'turnColor':borrowbook.checked}" ng-repeat="borrowbook in items | filter: b | orderBy:'publisher'">
                             <td class="a-center ">
                                 <input type="checkbox" id="checkbox{{borrowbook.count}}" class="checkOption" ng-model="borrowbook.checked" data-ng-click="sigelChecked(borrowbook.checked,$index)"  style="display: none;">
                                 <label for="checkbox{{borrowbook.count}}"></label>

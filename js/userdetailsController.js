@@ -128,5 +128,11 @@ shuzhanggui.controller('userdetailsController',['$scope',function ($scope) {
       $scope.showContent=!$scope.showContent;
       $scope.showNoContent=!$scope.showNoContent;
    }
+   //loading
+   $scope.toggle_model=function () {
+      angular.element('#mymodel').fadeIn(500,function () {
+         angular.element('#mymodel').fadeOut();
+      });
+   }
 
 }]);

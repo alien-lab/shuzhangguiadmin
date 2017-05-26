@@ -6,6 +6,7 @@
    var shuzhangguiLogin = angular.module('shuzhangguiLogin',[])
       //登录注册切换
       .controller('loginController',['$scope','$location',function ($scope,$location) {
+
          $scope.login_panel=false;
          $scope.register_panel=true;
          $scope.isLogin=true;
@@ -25,18 +26,22 @@
 
          }
 
+
+
          //登录注册
+
          $scope.sign_in_button=function () {
             if($scope.phoneNumber == "18851193086" && $scope.password == "123456"){
-               swal({
+              /* swal({
                   title: "登录成功！",
                   type: "success",
                   timer: 1500,
                   showConfirmButton: false
-               });
-                $scope.phoneNumber="";
-                $scope.password="";
-               setTimeout("window.location.href='shuzhanggui.html'",1500);
+               });*/
+               $scope.phoneNumber="";
+               $scope.password="";
+               $('.sign .main').animate({right:'-100%'},1000);
+               setTimeout("window.location.href='shuzhanggui.html'",1000);
             }else {
                swal({
                   title: "登录失败！",
@@ -65,6 +70,14 @@
                });
             }
          }
+
+         //页面加载事件
+
+         angular.element(window).bind('load', function() {
+           $('.topPanel').animate({height:'100%'},1200);
+            $('.sign .main').animate({right:'7%'},500);
+         })
       }])
 
 })()
+

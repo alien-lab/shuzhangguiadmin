@@ -136,7 +136,6 @@ shuzhanggui.controller('borrowbookController', function ($scope, $timeout) {
 
    $scope.config3 = {
       data: [{id:1,text:'bug'},{id:2,text:'duplicate'},{id:3,text:'invalid'},{id:4,text:'wontfix'}]
-      // 其他配置略，可以去看看内置配置中的ajax配置
    };
 
 });

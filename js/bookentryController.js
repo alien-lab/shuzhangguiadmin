@@ -520,6 +520,43 @@ shuzhanggui.controller('bookentryController',['$scope',function ($scope) {
    console.log($scope.library_names);
 
 
+   //通过api isbn查到的图书
+   var newbooks = [
+      {
+         'id':'1',
+         'img':'https://img3.doubanio.com/lpic/s29408611.jpg',
+         'title':'七杀简史',
+         'author':'[牙买加] 马龙·詹姆斯',
+         'publisher':'江苏凤凰文艺出版社',
+         'translator':'姚向辉',
+         'pubdate':'2017-4',
+         'pages':'752',
+         'price':'128',
+         'binding':'精装',
+         'ISBN':'9787559400239'
+
+      }
+   ];
+   $scope.newbooks=newbooks;
+   console.log($scope.newbooks);
+
+   //图书上架
+   $scope.book_entryPanel=false;
+   $scope.book_entryPanel_btn=function () {
+      if($scope.libraryName!=null){
+         $scope.book_entryPanel=true;
+      }
+   }
+
+   //确认上架
+   $scope.confirm_entryBook=function () {
+      $scope.book_entryPanel=false;
+   }
+   //取消上架
+   $scope.canel_entryBook=function () {
+      $scope.book_entryPanel=false;
+   }
+
    //checkbox  全选
    $scope.button_hide=false;
    $scope.checkall=false;   //默认不是全选状态
@@ -538,7 +575,7 @@ shuzhanggui.controller('bookentryController',['$scope',function ($scope) {
 
    //---------------------->>>>pagination
 
-   $scope.pageSize = 9; //每个页面最多加载10条数据
+   $scope.pageSize = 9; //每个页面最多加载9条数据
    $scope.maxSize = Math.ceil($scope.borrowbooks.length / $scope.pageSize);  //分页总数
    $scope.newPages = $scope.maxSize > 5 ? 5 : $scope.maxSize; //判断页码是否超过5
    $scope.pageList = [];//存放所有页
@@ -583,4 +620,11 @@ shuzhanggui.controller('bookentryController',['$scope',function ($scope) {
    $scope.Next = function () {
       $scope.selectPage($scope.selPage + 1);
    };
+
+   //loading
+   $scope.toggle_model=function () {
+      angular.element('#mymodel').fadeIn(500,function () {
+         angular.element('#mymodel').fadeOut();
+      });
+   }
 }]);

@@ -11,7 +11,7 @@
                         <div class="input-group" style="margin: -6px 0 0 0px;">
                             <input type="text" class="form-control" ng-model="libraryName" placeholder="ISBN" style="border-radius: 20px;">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" style="margin: 0px 0px 0px -35px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">Go!</button>
+                                <button class="btn btn-default" type="button" data-ng-click="book_entryPanel_btn()" style="margin: 0px 0px 0px -35px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;">Go!</button>
                             </span>
                         </div>
                     </div>
@@ -84,6 +84,36 @@
                     <pre>页码: {{selPage}} / {{maxSize}}</pre>
                     <!--end-->
 
+                </div>
+
+                <!--图书上架-->
+                <div class="book_entryPanel toggel_entryPanel" ng-if="book_entryPanel" ng-repeat="newbook in newbooks">
+                    <div class="book_entry_info">
+                        <div class="entry_info_top">
+                            <code>书籍详情</code>
+                        </div>
+                        <div class="entry_info">
+                            <div class="entry_info_left">
+                                <img ng-src="{{newbook.img}}" alt="img">
+                            </div>
+                            <div class="entry_info_right">
+                                <div class="title fontColor" style="font-weight: 600;">{{newbook.title}} </div>
+                                <div class="author fontColor">作者：{{newbook.author}}  </div>
+                                <div class="publisher fontColor">出版社：{{newbook.publisher}}  </div>
+                                <div class="translator fontColor">译者：{{newbook.translator}} </div>
+                                <div class="pubdate fontColor">出版年：{{newbook.pubdate | date :'yyyy-MM'}}</div>
+                                <div class="pages fontColor">页数：{{newbook.pages}}</div>
+                                <div class="price fontColor">定价：{{newbook.price | currency : '￥'}}</div>
+                                <div class="binding fontColor">装帧：{{newbook.binding}}</div>
+                                <div class="ISBN fontColor">ISBN：{{newbook.ISBN}}</div>
+                            </div>
+                            <div class="entry_info_button">
+                                <button type="button" class="btn btn-success" data-ng-click="canel_entryBook()">取消</button>
+                                <button type="button" class="btn btn-success" data-ng-click="confirm_entryBook()">确认上架</button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--no content-->

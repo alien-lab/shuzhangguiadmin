@@ -1,5 +1,5 @@
 <!-- increase library info-->
-<div class="main_page" ng-controller="homeController">
+<div class="main_page toggle_pages" ng-controller="homeController">
         <div class="col-md-12 col-sm-12 col-xs-12 main_page_increase">
             <div class="x_title">
                 <h2 ng-model="main_title">{{main_title}} <small>图书馆信息</small></h2>
@@ -60,7 +60,7 @@
            </div>
        </div>
        <!--列表-->
-       <div class="col-md-12 col-sm-12 col-xs-12 info_showList" ng-if="showContent">
+       <div class="col-md-12 col-sm-12 col-xs-12 info_showList toggle_pages" ng-if="showContent">
            <div class="x_panel">
                <div class="x_content" style="display: block;">
                    <div class="bookPanel_zhanwei" style="height:355px;">
@@ -76,15 +76,15 @@
                        </tr>
                        </thead>
                        <tbody>
-                       <tr ng-repeat="libraryInfo in items | filter:library__Name | orderBy:'libraryNumber'">
-                           <th scope="row" style="height: 30px;">{{libraryInfo.id}}</th>
-                           <td style="height: 30px;">{{libraryInfo.libraryName}}</td>
-                           <td style="height: 30px;">{{libraryInfo.libraryDesc}}</td>
-                           <td style="height: 30px;">{{libraryInfo.libraryLocation}}</td>
-                           <td style="height: 30px;">{{libraryInfo.libraryNumber}}册</td>
+                       <tr ng-repeat="libraryInfo in items | filter:library__Name | orderBy:'library__books_number'">
+                           <th scope="row" style="height: 30px;">{{libraryInfo.library_id}}</th>
+                           <td style="height: 30px;">{{libraryInfo.library_name}}</td>
+                           <td style="height: 30px;">{{libraryInfo.library_info}}</td>
+                           <td style="height: 30px;">{{libraryInfo.library_position}}</td>
+                           <td style="height: 30px;">{{libraryInfo.library__books_number}}册</td>
                            <td class=" last" style="height: 30px;">
-                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-edit" data-ng-click="modify_library(libraryInfo.id,$index)" style="color:#3F5367;"></i></a>
-                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-trash" data-ng-click="delete_library(libraryInfo.id,$index)" style="color: red;margin: 0 0 0 6px;"></i></a>
+                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-edit" data-ng-click="modify_library(libraryInfo.library_id,$index)" style="color:#3F5367;"></i></a>
+                               <a href="javascript:void(0);"><i class="glyphicon glyphicon-trash" data-ng-click="delete_library(libraryInfo.library_id,$index)" style="color: red;margin: 0 0 0 6px;"></i></a>
                            </td>
                        </tr>
 
